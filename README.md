@@ -32,4 +32,4 @@ Tools Used in this
   I have push the .env file as well so that testing will be easier for everyone to evaluate
 
 
-I truly hope to be selected for this internship at Vrit Technologies. I am excited about the opportunity to learn, gain practical experience, work on real-world projects, and grow as a QA professional. I am ready to give my best and make the most of this opportunity.
+I TRULY HOPE TO BE SELECTED FOR THIS INTERNSHIP AT VRIT TECHNOLOGIES. I AM EXCITED ABOUT THE OPPORTUNITY TO LEARN, GAIN PRACTICAL EXPERIENCE, WORK ON REAL-WORLD PROJECTS, AND GROW AS A QA PROFESSIONAL. I AM READY TO GIVE MY BEST AND MAKE THE MOST OF THIS OPPORTUNITY.
