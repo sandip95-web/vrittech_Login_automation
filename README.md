@@ -1,35 +1,73 @@
-For the Assestment For QA Intern at Vrit Technologies I have prepared
-The Following Documents
+# QA INTERN ASSESSMENT – VRIT TECHNOLOGIES
 
-1) Test Plan
-2) Test Scenario
-3) Test Cases
-4) RTM
-5) Bug Report ( I have found one bug and reported it in the Bug Report File).
+## 1. Assessment Documentation
 
-All This Files Are Present in the "docs" folder
+I have prepared the following documents as part of the QA Intern Assessment:
 
-//NOTE: WHEN IT IS TIME TO PUT OTP IT MAKE TAKE 10 sec so please wait for that time it will automatically insert the OTP
+1. **Test Plan**
+2. **Test Scenarios**
+3. **Test Cases**
+4. **Requirement Traceability Matrix (RTM)**
+5. **Bug Report** – I have Found One Bug and i have reported it in the Bug report please kindly do check.
 
-How To Start the Application
+All the above documents are available in the `docs` folder.
 
-1) Go to Terminal and Type this as follow
+## 2. Automation Execution
 
-   - npm install (this will install the necessary dependencies for the testing)
-   - npm run headed
-   ( if u want to see the whole signup process live then please run this in the terminal)
+The automation tests are developed using Playwright with TypeScript.
 
-   Other necesary Scripts are present in the package.json file, Please if required through it
+### Prerequisites
 
-Tools Used in this
+- Node.js installed
+- npm installed
 
-  - "@playwright/test": "^1.65.0",
-  - "@types/node": "^26.6.6",
-  - "mailosaur": "^11.1.1",
-  - "typescript": "^7.0.2"
-  - "dotenv": "^18.0.10"
+### Installation
 
-  I have push the .env file as well so that testing will be easier for everyone to evaluate
+Open the project in your terminal and run:
 
+```bash
+npm install
+```
+
+This will install all the required dependencies.
+
+### Run Tests in Headed Mode
+
+To execute the tests in a visible browser and observe the complete signup process, run:
+
+```bash
+npm run headed
+```
+
+### Additional Scripts
+
+Other available test scripts are defined in the `package.json` file. Please refer to it for additional execution options.
+
+## 3. OTP Verification Note
+
+**IMPORTANT:** During the signup process, when the application reaches the OTP verification step, please allow approximately **10 seconds** for the OTP to be automatically retrieved and entered.
+
+No manual OTP entry is required during the automated execution.
+
+## 4. Tools & Technologies Used
+
+The following tools and dependencies were used for this assessment:
+
+- **Playwright Test**
+- **TypeScript**
+- **Mailosaur**
+- **Dotenv**
+- **Node.js**
+- **npm** 
+
+## 5. Configuration Note
+
+The project uses environment variables configured through a `.env` file.
+
+**Note:** The `.env` file has been included in the repository to make the assessment easier to execute and evaluate.
+
+## 6. Closing Note
 
 I TRULY HOPE TO BE SELECTED FOR THIS INTERNSHIP AT VRIT TECHNOLOGIES. I AM EXCITED ABOUT THE OPPORTUNITY TO LEARN, GAIN PRACTICAL EXPERIENCE, WORK ON REAL-WORLD PROJECTS, AND GROW AS A QA PROFESSIONAL. I AM READY TO GIVE MY BEST AND MAKE THE MOST OF THIS OPPORTUNITY.
+
+**Thank you for taking the time to review my assessment!**
