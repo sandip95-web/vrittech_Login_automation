@@ -26,6 +26,11 @@ export class SignUpPage {
   readonly numberOfStudentRecruitedInput: Locator
   readonly focusAreaInput: Locator
   readonly successMetricsInput: Locator
+  readonly bussinessRegisteredNumberInput: Locator
+  readonly preferedCountryInput: Locator
+  readonly preferedCertificationDetails: Locator
+  readonly businessDocumentUploadInput: Locator
+  readonly submitButton: Locator
 
   constructor(page: Page) {
     this.page = page
@@ -34,10 +39,10 @@ export class SignUpPage {
       .nth(0)
     this.termsCheckbox = page.locator('#remember')
     this.continueButton = page.getByRole('button', { name: 'Continue' })
-    this.firstNameInput = page.locator('#_r_0_-form-item')
-    this.lastNameInput = page.locator('#_r_1_-form-item')
-    this.emailInput = page.locator('#_r_2_-form-item')
-    this.phoneNumberInput = page.locator('#_r_4_-form-item')
+    this.firstNameInput = page.locator('input[name="firstName"]')
+    this.lastNameInput = page.locator('input[name="lastName"]')
+    this.emailInput = page.locator('input[name="email"]')
+    this.phoneNumberInput = page.locator('input[name="phoneNumber"]')
     this.passwordInput = page.locator('input[name="password"]')
     this.confirmPasswordInput = page.locator('input[name="confirmPassword"]')
     this.nextButton = page.getByRole('button', { name: 'Next', exact: true })
@@ -60,9 +65,23 @@ export class SignUpPage {
     this.yearsOfExperienceInput = page.getByRole('combobox', {
       name: 'Years of Experience',
     })
-    this.numberOfStudentRecruitedInput = page.locator('input[name="number_of_students_recruited_annually"]')
+    this.numberOfStudentRecruitedInput = page.locator(
+      'input[name="number_of_students_recruited_annually"]',
+    )
     this.focusAreaInput = page.locator('input[name="focus_area"]')
     this.successMetricsInput = page.locator('input[name="success_metrics"]')
+    this.bussinessRegisteredNumberInput = page.locator(
+      'business_registration_number"]',
+    )
+    this.preferedCountryInput = page.getByLabel('Preferred Countries')
+    this.preferedCertificationDetails = page.locator(
+      'input[name="certification_details"]',
+    )
+    this.businessDocumentUploadInput = page
+      .locator('input[name="business_document"]')
+      .nth(0)
+
+    this.submitButton = page.getByRole('button', { name: 'Submit' })
   }
 
   async goToWebsite() {
@@ -222,6 +241,64 @@ export class SignUpPage {
     ).toBeVisible()
   }
 
+  async selectPreferredCountries(countries: string[]) {
+    await this.preferedCountryInput.click()
+
+    for (const country of countries) {
+      await this.page.getByText(country, { exact: true }).last().click()
+    }
+  }
+
+  async selectPreferedInstitution() {
+    const CheckBox = this.page.getByLabel('Colleges')
+    await CheckBox.check()
+    await expect(CheckBox).toBeChecked()
+  }
+
+  async uploadImage() {
+    await this.businessDocumentUploadInput.setInputFiles(
+      'test-files/university.png',
+    )
+
+    await expect(this.businessDocumentUploadInput).toHaveJSProperty(
+      'files.length',
+      1,
+    )
+  }
+
+  async VerificaitonAndPreferenceForm(data: SignUpData): Promise<void> {
+    expect(
+      this.page.getByText('4. Verification and Preferences').first(),
+    ).toBeVisible()
+
+    if (data.bussinessRegisteredNumber !== undefined) {
+      await this.bussinessRegisteredNumberInput.fill(
+        data.bussinessRegisteredNumber,
+      )
+    }
+    if (data.preferedCountry !== undefined) {
+      await this.selectPreferredCountries(data.preferedCountry)
+    }
+
+    if (data.preferedCertificationDetails !== undefined) {
+      await this.preferedCertificationDetails.fill(
+        data.preferedCertificationDetails,
+      )
+    }
+
+    await this.selectPreferedInstitution()
+
+    await this.uploadImage()
+  }
+
+  async clickSubmitButton() {
+    const isSubmitButtonEnabled = await this.submitButton.isEnabled()
+    if (isSubmitButtonEnabled) {
+      await this.submitButton.click()
+    }
+    expect(this.page.getByRole('heading', { name: 'My Profile' })).toBeVisible()
+  }
+
   async registerUser(data: SignUpData): Promise<void> {
     await this.clickGetStartedButton()
     await this.acceptTermsAndConditions()
@@ -234,5 +311,6 @@ export class SignUpPage {
     await this.clickAgencyNextButton()
     await this.ExperienceSignUpForm(data)
     await this.clickExperienceNextButton()
+    await this.VerificaitonAndPreferenceForm(data)
   }
 }

@@ -1,27 +1,27 @@
-
 export interface SignUpData {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phoneNumber: string;
-  password: string;
-  confirmPassword: string;
-  agencyName: string;
-  roleInAgency: string;
-  emailAddress: string;
-  website: string;
-  address: string;
-  region: string;
-  yearsOfExperience: string;
-  noOfStudentRecruited?: string;
-  focusArea?: string;
-  successMetrics?: string;
-  servicesProvided?: string;
+  firstName: string
+  lastName: string
+  email: string
+  phoneNumber: string
+  password: string
+  confirmPassword: string
+  agencyName: string
+  roleInAgency: string
+  emailAddress: string
+  website: string
+  address: string
+  region: string
+  yearsOfExperience: string
+  noOfStudentRecruited?: string
+  focusArea?: string
+  successMetrics?: string
+  bussinessRegisteredNumber?: string
+  preferedCountry: string[]
+  preferedCertificationDetails?: string
 }
 
-
 export const generateSignUpData = (): SignUpData => {
-  const uniqueId = crypto.randomUUID();
+  const uniqueId = crypto.randomUUID()
 
   return {
     firstName: 'John',
@@ -40,7 +40,8 @@ export const generateSignUpData = (): SignUpData => {
     noOfStudentRecruited: '100',
     focusArea: 'Education',
     successMetrics: '90',
-  };
-};
-
-
+    bussinessRegisteredNumber: '123456789',
+    preferedCountry: ['Nepal', 'India', 'USA'],
+    preferedCertificationDetails: 'ISO 9001',
+  }
+}

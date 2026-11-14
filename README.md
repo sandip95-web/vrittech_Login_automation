@@ -9,6 +9,8 @@ The Following Documents
 
 All This Files Are Present in the "docs" folder
 
+//NOTE: WHEN IT IS TIME TO PUT OTP IT MAKE TAKE 10 sec so please wait for that time it will automatically insert the OTP
+
 How To Start the Application
 
 1) Go to Terminal and Type this as follow
@@ -28,3 +30,6 @@ Tools Used in this
   - "dotenv": "^18.0.10"
 
   I have push the .env file as well so that testing will be easier for everyone to evaluate
+
+
+I truly hope to be selected for this internship at Vrit Technologies. I am excited about the opportunity to learn, gain practical experience, work on real-world projects, and grow as a QA professional. I am ready to give my best and make the most of this opportunity.
