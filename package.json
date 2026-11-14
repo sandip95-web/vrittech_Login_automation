@@ -24,6 +24,7 @@
   "devDependencies": {
     "@playwright/test": "^1.65.0",
     "@types/node": "^26.6.6",
+    "mailosaur": "^11.1.1",
     "typescript": "^7.0.2"
   },
   "dependencies": {
