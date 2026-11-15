@@ -10,9 +10,15 @@ I have prepared the following documents as part of the QA Intern Assessment:
 4. **Requirement Traceability Matrix (RTM)**
 5. **Bug Report** – I have Found One Bug and i have reported it in the Bug report please kindly do check.
 
+## 2. OTP Verification Note
+
+**IMPORTANT:** During the signup process, when the application reaches the OTP verification step, please allow approximately **10 seconds** for the OTP to be automatically retrieved and entered.
+
+No manual OTP entry is required during the automated execution.
+
 All the above documents are available in the `docs` folder.
 
-## 2. Automation Execution
+## 3. Automation Execution
 
 The automation tests are developed using Playwright with TypeScript.
 
@@ -43,11 +49,7 @@ npm run headed
 
 Other available test scripts are defined in the `package.json` file. Please refer to it for additional execution options.
 
-## 3. OTP Verification Note
 
-**IMPORTANT:** During the signup process, when the application reaches the OTP verification step, please allow approximately **10 seconds** for the OTP to be automatically retrieved and entered.
-
-No manual OTP entry is required during the automated execution.
 
 ## 4. Tools & Technologies Used
 
@@ -58,7 +60,7 @@ The following tools and dependencies were used for this assessment:
 - **Mailosaur**
 - **Dotenv**
 - **Node.js**
-- **npm** 
+- **npm**
 
 ## 5. Configuration Note
 

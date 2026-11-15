@@ -71,15 +71,13 @@ export class SignUpPage {
     this.focusAreaInput = page.locator('input[name="focus_area"]')
     this.successMetricsInput = page.locator('input[name="success_metrics"]')
     this.bussinessRegisteredNumberInput = page.locator(
-      'business_registration_number"]',
+      'input[name="business_registration_number"]',
     )
     this.preferedCountryInput = page.getByLabel('Preferred Countries')
     this.preferedCertificationDetails = page.locator(
       'input[name="certification_details"]',
     )
-    this.businessDocumentUploadInput = page
-      .locator('input[name="business_document"]')
-      .nth(0)
+    this.businessDocumentUploadInput = page.locator('input[type="file"]').nth(0)
 
     this.submitButton = page.getByRole('button', { name: 'Submit' })
   }
@@ -296,7 +294,15 @@ export class SignUpPage {
     if (isSubmitButtonEnabled) {
       await this.submitButton.click()
     }
-    expect(this.page.getByRole('heading', { name: 'My Profile' })).toBeVisible()
+    await this.page.waitForTimeout(5000)
+    await this.page.waitForURL('**/admin/profile**')
+
+    await expect(
+      this.page.getByRole('heading', {
+        name: 'My Profile',
+        exact: true,
+      }),
+    ).toBeVisible()
   }
 
   async registerUser(data: SignUpData): Promise<void> {
@@ -312,5 +318,6 @@ export class SignUpPage {
     await this.ExperienceSignUpForm(data)
     await this.clickExperienceNextButton()
     await this.VerificaitonAndPreferenceForm(data)
+    await this.clickSubmitButton()
   }
 }

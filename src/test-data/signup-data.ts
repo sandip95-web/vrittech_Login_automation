@@ -41,7 +41,7 @@ export const generateSignUpData = (): SignUpData => {
     focusArea: 'Education',
     successMetrics: '90',
     bussinessRegisteredNumber: '123456789',
-    preferedCountry: ['Nepal', 'India', 'USA'],
+    preferedCountry: ['Nepal', 'India'],
     preferedCertificationDetails: 'ISO 9001',
   }
 }
